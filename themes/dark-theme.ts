@@ -4,20 +4,25 @@ import { grey, red } from "@mui/material/colors";
 export const darkTheme = createTheme({
   palette: {
     mode: "dark",
-    background:{
-        default:grey[300]
+   
+    secondary: {
+      main: "#19857b",
     },
-    primary:{
-        main:'#4a148c'
-    },
-    secondary:{
-        main:'#19857b'
-    },
-    error:{
-        main:red[400]
+    error: {
+      main: red[400],
     },
   },
-  components:{
-    
-  }
+  components: {
+    MuiAppBar: {
+      defaultProps: {
+        elevation:0
+      },
+      styleOverrides: {
+        root: {
+          backgroundColor: "#4a148c",
+          
+        },
+      },
+    },
+  },
 });

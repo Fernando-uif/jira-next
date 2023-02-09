@@ -4,20 +4,24 @@ import { grey, red } from "@mui/material/colors";
 export const lightTheme = createTheme({
   palette: {
     mode: "light",
-    background:{
-        default:grey[300]
+    background: {
+      default: grey[300],
     },
-    primary:{
-        main:'#4a148c'
+    primary: {
+      main: "#4a148c",
     },
-    secondary:{
-        main:'#19857b'
+    secondary: {
+      main: "#19857b",
     },
-    error:{
-        main:red[400]
+    error: {
+      main: red[400],
     },
   },
-  components:{
-    
-  }
+  components: {
+    MuiAppBar: {
+      defaultProps: {
+        elevation: 0,
+      },
+    },
+  },
 });
