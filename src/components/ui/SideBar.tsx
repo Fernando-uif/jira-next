@@ -8,18 +8,17 @@ import {
   Typography,
 } from "@mui/material";
 import { Box } from "@mui/system";
-import React, { useState } from "react";
+import React, { useContext } from "react";
 import InboxOutlinedIcon from "@mui/icons-material/InboxOutlined";
 import MailOutlineIcon from "@mui/icons-material/MailOutline";
+import { UIContext } from "../../context/ui/UIContext";
 const menuItems: string[] = ["Inbox", "Starred", "Send email", "Drafts"];
 
 export const SideBar = () => {
-  const [isOpen, setIsOpen] = useState(true);
-  const toggleDrawer = () => {
-    setIsOpen(!isOpen);
-  };
+  const { sidemenuOpen, closeSideMenu } = useContext(UIContext);
+
   return (
-    <Drawer anchor="left" open={isOpen} onClose={toggleDrawer}>
+    <Drawer anchor="left" open={sidemenuOpen} onClose={closeSideMenu}>
       <Box sx={{ width: 250 }}>
         <Box sx={{ padding: "5px 10px" }}>
           <Typography variant="h4">Menu</Typography>
