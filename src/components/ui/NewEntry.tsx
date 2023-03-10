@@ -5,12 +5,16 @@ import AddIcon from "@mui/icons-material/Add";
 import { Button, TextField } from "@mui/material";
 
 import { EntriesContext } from "../../context/entries/EntriesContext";
+import { UIContext } from "../../context/ui/UIContext";
 
 export const NewEntry = () => {
   const [isAdding, setIsAdding] = useState(false);
   const [inputValue, setInputValue] = useState("");
   const [isTouch, setIsTouch] = useState(false);
   const { addNewEntry } = useContext(EntriesContext);
+  const { isAddingEntry, setIsAddingEntry } = useContext(UIContext);
+
+  console.log(isAddingEntry, "Tenemos el entry");
 
   const onTextFieldChanged = (
     event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -29,7 +33,7 @@ export const NewEntry = () => {
   return (
     <>
       <Box sx={{ marginBottom: 2, paddingX: 2 }}>
-        {isAdding ? (
+        {isAddingEntry ? (
           <>
             <TextField
               fullWidth
@@ -62,7 +66,7 @@ export const NewEntry = () => {
               startIcon={<AddIcon />}
               fullWidth
               variant="outlined"
-              onClick={() => setIsAdding(true)}
+              onClick={() => setIsAddingEntry}
             >
               Agregar Tarea
             </Button>
