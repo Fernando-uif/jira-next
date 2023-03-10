@@ -1,13 +1,16 @@
-import { Button, TextField } from "@mui/material";
+import { ChangeEvent, useState, useContext } from "react";
 import SaveIcon from "@mui/icons-material/Save";
 import { Box } from "@mui/system";
 import AddIcon from "@mui/icons-material/Add";
-import { ChangeEvent, useState } from "react";
+import { Button, TextField } from "@mui/material";
+
+import { EntriesContext } from "../../context/entries/EntriesContext";
 
 export const NewEntry = () => {
   const [isAdding, setIsAdding] = useState(false);
   const [inputValue, setInputValue] = useState("");
   const [isTouch, setIsTouch] = useState(false);
+  const { addNewEntry } = useContext(EntriesContext);
 
   const onTextFieldChanged = (
     event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -17,8 +20,10 @@ export const NewEntry = () => {
 
   const onSave = () => {
     if (!inputValue.length) return;
-    
-    console.log(inputValue,'Contenido del input');
+    addNewEntry(inputValue);
+    setIsAdding(false);
+    setIsTouch(false);
+    setInputValue("");
   };
 
   return (

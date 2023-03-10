@@ -15,7 +15,6 @@ const Entries_INITIAL_STATE: EntriesState = {
     {
       _id: uuidv4(),
       description:
-      
         "En progreso: Lorem, ipsum dolor sit amet consectetur adipisicing elit. Earum dolores iusto dolorum, nemo necessitatibus totam natus quaerat temporibus enim perspiciatis excepturi exercitationem ullam ducimus sint tempore consequuntur amet asperiores ea.",
       createAt: new Date().getTime(),
       status: "in-progress",
@@ -39,8 +38,18 @@ const Entries_INITIAL_STATE: EntriesState = {
 export const EntriesProvider = ({ children }: Props) => {
   const [state, dispatch] = useReducer(entriesReducer, Entries_INITIAL_STATE);
 
+  const addNewEntry = (description: string) => {
+    const NewEntry: Entry = {
+      _id: uuidv4(),
+      description,
+      createAt: Date.now(),
+      status: "pending",
+    };
+    dispatch({ type: "[Entry] - Add-Entry", payload: NewEntry });
+  };
+
   return (
-    <EntriesContext.Provider value={{ ...state }}>
+    <EntriesContext.Provider value={{ ...state, addNewEntry }}>
       {children}
     </EntriesContext.Provider>
   );
