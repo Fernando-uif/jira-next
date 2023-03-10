@@ -1,6 +1,7 @@
 import { Card, CardContent, CardHeader, Grid } from "@mui/material";
 import { Layout } from "@/components/layouts";
 import { UIProvider } from "@/context/ui";
+import { EntryList } from "@/components/ui";
 
 export default function Home() {
   return (
@@ -10,24 +11,31 @@ export default function Home() {
           <Grid container spacing={2}>
             <Grid item xs={12} sm={4}>
               <Card sx={{ height: "calc(100vh - 100px)" }}>
-                <CardHeader title="Pendientes">
-                  <CardContent>
-                    {/* Agregar una nueva Entrada */}
-                    {/* Listado de las entradas */}
-                  </CardContent>
-                </CardHeader>
+                <CardHeader title="Pendientes" />
+
+                <CardContent>
+                  {/* Agregar una nueva Entrada */}
+                  {/* Listado de las entradas */}
+                  <EntryList />
+                </CardContent>
               </Card>
             </Grid>
 
             <Grid item xs={12} sm={4}>
               <Card sx={{ height: "calc(100vh - 100px)" }}>
-                <CardHeader title="En progreso"></CardHeader>
+                <CardHeader title="En progreso" />
+                <CardContent>
+                  <EntryList />
+                </CardContent>
               </Card>
             </Grid>
 
             <Grid item xs={12} sm={4}>
               <Card sx={{ height: "calc(100vh - 100px)" }}>
-                <CardHeader title="Completadas"></CardHeader>
+                <CardHeader title="Completadas" />
+                <CardContent>
+                  <EntryList />
+                </CardContent>
               </Card>
             </Grid>
           </Grid>
