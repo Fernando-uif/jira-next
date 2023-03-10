@@ -16,7 +16,7 @@ export default function Home() {
                 <CardContent>
                   {/* Agregar una nueva Entrada */}
                   {/* Listado de las entradas */}
-                  <EntryList />
+                  <EntryList status={'pending'}/>
                 </CardContent>
               </Card>
             </Grid>
@@ -25,7 +25,7 @@ export default function Home() {
               <Card sx={{ height: "calc(100vh - 100px)" }}>
                 <CardHeader title="En progreso" />
                 <CardContent>
-                  <EntryList />
+                  <EntryList status={"in-progress"}/>
                 </CardContent>
               </Card>
             </Grid>
@@ -34,7 +34,7 @@ export default function Home() {
               <Card sx={{ height: "calc(100vh - 100px)" }}>
                 <CardHeader title="Completadas" />
                 <CardContent>
-                  <EntryList />
+                  <EntryList status={"finished"}/>
                 </CardContent>
               </Card>
             </Grid>

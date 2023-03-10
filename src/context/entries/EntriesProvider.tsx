@@ -15,21 +15,22 @@ const Entries_INITIAL_STATE: EntriesState = {
     {
       _id: uuidv4(),
       description:
-        "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Earum dolores iusto dolorum, nemo necessitatibus totam natus quaerat temporibus enim perspiciatis excepturi exercitationem ullam ducimus sint tempore consequuntur amet asperiores ea.",
+      
+        "En progreso: Lorem, ipsum dolor sit amet consectetur adipisicing elit. Earum dolores iusto dolorum, nemo necessitatibus totam natus quaerat temporibus enim perspiciatis excepturi exercitationem ullam ducimus sint tempore consequuntur amet asperiores ea.",
       createAt: new Date().getTime(),
       status: "in-progress",
     },
     {
       _id: uuidv4(),
       description:
-        "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Earum dolores iusto dolorum, nemo .",
+        "Terminado: Lorem, ipsum dolor sit amet consectetur adipisicing elit. Earum dolores iusto dolorum, nemo .",
       createAt: new Date().getTime(),
       status: "finished",
     },
     {
       _id: uuidv4(),
       description:
-        "enim perspiciatis excepturi exercitationem ullam ducimus sint tempore consequuntur amet asperiores ea.",
+        "Pendiente:enim perspiciatis excepturi exercitationem ullam ducimus sint tempore consequuntur amet asperiores ea.",
       createAt: new Date().getTime(),
       status: "pending",
     },
