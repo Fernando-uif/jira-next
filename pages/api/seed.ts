@@ -1,13 +1,17 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-import type { NextApiRequest, NextApiResponse } from 'next'
-
+import type { NextApiRequest, NextApiResponse } from "next";
+import { db } from "../../database";
 type Data = {
-  name: string
-}
+  message?: string;
+};
 
-export default function handler(
+export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data>
 ) {
-  res.status(200).json({ name: 'John Doe' })
+  if (process.env.NODE_ENV === "production") {
+    return res.status(401).json({ message: "No tiene acceso a este endpoint" });
+  }
+  await db.connect();
+  res.status(200).json({ message: "Proceso realizado correctamente" });
 }
